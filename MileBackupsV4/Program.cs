@@ -7,6 +7,8 @@ namespace MileBackupsV4
     {
         static void Main(string[] args)
         {
+            MileniumWeb mileniumWeb = new MileniumWeb();
+
             try
             {
                 // Validamos si es administrador
@@ -17,12 +19,17 @@ namespace MileBackupsV4
                     Environment.Exit(0);
                 }
 
-                Console.WriteLine("...");
-                Console.Read();
+                // Web
+                var a = mileniumWeb.ListarSitios();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Ah ocurrido un error; {ex.Message}");
+                Console.ReadLine();
+            }
+            finally
+            {
+                Console.WriteLine("Trabajo terminado");
                 Console.ReadLine();
             }
         }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MileBackupsV4
 {
-    class Milenium
+    class MileniumFoxPro
     {
         public void Respaldar()
         {// Seteamos
