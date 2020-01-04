@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracion.cs" />
     <Compile Include="MileniumFoxPro.cs" />
     <Compile Include="MileniumWeb.cs" />
     <Compile Include="Program.cs" />
