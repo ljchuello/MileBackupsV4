@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
     <Compile Include="MileniumFoxPro.cs" />
+    <Compile Include="MileniumSql.cs" />
     <Compile Include="MileniumWeb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

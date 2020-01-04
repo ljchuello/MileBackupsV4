@@ -18,10 +18,13 @@ namespace MileBackupsV4
                 }
 
                 // Contable
-                new MileniumFoxPro().Respaldar();
+                //new MileniumFoxPro().Respaldar();
 
                 // Web
-                new MileniumWeb().Respaldar();
+                //new MileniumWeb().Respaldar();
+
+                // SQL
+                new MileniumSql().a();
             }
             catch (Exception ex)
             {
