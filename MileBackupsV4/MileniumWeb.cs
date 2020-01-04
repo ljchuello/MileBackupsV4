@@ -19,7 +19,7 @@ namespace MileBackupsV4
             int iteracion = 0;
 
             // Preguntamos
-            Console.WriteLine("Desea respaldar sitio web (RIDE y XML)?");
+            Console.WriteLine("\nDesea respaldar sitio web (RIDE y XML)?");
             Console.WriteLine("Presione la letra \"S\" para realizar respaldo ó cualquier letra para no respaldar");
             if (Console.ReadLine()?.ToLower() != "s")
             {
@@ -37,9 +37,22 @@ namespace MileBackupsV4
                 Console.WriteLine($"{row.Id}\t{row.Descripcion}");
             }
 
-            // Entreada
-            Console.WriteLine("\nIngrese el ID del sitio que desea respaldar");
-            string idSitio = Console.ReadLine();
+            // 
+            string idSitio;
+
+            // Automatizamos el sitio
+            if (sitios.Count == 1)
+            {
+                // Un sólo sitio
+                idSitio = sitios[0].Id;
+            }
+            else
+            {
+                // Diferente de 01 sitios
+                Console.WriteLine("\nIngrese el ID del sitio que desea respaldar");
+                idSitio = Console.ReadLine();
+            }
+
 
             // Validamos que sea diferente de S
             if (!sitios.Exists(x => x.Id == idSitio))
@@ -185,8 +198,11 @@ namespace MileBackupsV4
                 }
             }
 
-            Console.WriteLine("Se han copiado todas las firmas... Espere 3 Seg.");
-            Thread.Sleep(2500);
+            Console.WriteLine("Se han copiado todas las firmas");
+
+            Console.WriteLine("\nSe han copiado los XML (AUTORIZADOS), RIDES, Logotipos y firmas electrónicas");
+            Console.WriteLine("Presione cualquier tecla para continuar");
+            Console.ReadLine();
         }
 
         /// <summary>
