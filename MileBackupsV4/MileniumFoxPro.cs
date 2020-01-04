@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace MileBackupsV4
 {
     class MileniumFoxPro
     {
         public void Respaldar()
-        {// Seteamos
-            int carpetas = 0;
-            int Carchivos = 0;
+        {
+            int carpetaIteracion = 0;
+            int carpetaProcesada = 0;
+
+            int archivoIteracion = 0;
+            int archivoProcesado = 0;
+
+            Console.WriteLine("Desea realizar respaldos del sistema Milenium Contable/Milenium?");
+            Console.WriteLine("Presione la letra \"S\" para realizar respaldo ó cualquier letra para no respaldar");
+            if (Console.ReadLine()?.ToLower() != "s")
+            {
+                Console.WriteLine("Omitido por el usuario");
+                return;
+            }
 
             // Seteamos la ruta
-            string rutaDestino = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\{DateTime.Now:yyyy.MM.dd-HH.mm.ss}";
+            string rutaDestino = $"{Configuracion.Ruta}\\Milenium\\{DateTime.Now:yyyy.MM.dd-HH.mm.ss}";
 
             // Obtenemos la lista de las carpeta de la empresa
-            //string rutaOrigen = "\\\\server-fc\\D\\Milenium";
-            string rutaOrigen = $"{Environment.CurrentDirectory}";
+            string rutaOrigen = "\\\\server-fc\\D\\Milenium";
+            //string rutaOrigen = $"{Environment.CurrentDirectory}";
 
             // Creamos el contenedor
             List<string> listFolder = new List<string>();
@@ -29,12 +41,47 @@ namespace MileBackupsV4
                 listFolder.Add(row);
             }
 
-            // Obtenemos las carpetas del año anterior
+            // Obtenemos las carpetas del año -1
             foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-1):yy}").ToList())
             {
                 // Añadimos
                 listFolder.Add(row);
             }
+
+            //// Obtenemos las carpetas del año -2
+            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-2):yy}").ToList())
+            //{
+            //    // Añadimos
+            //    listFolder.Add(row);
+            //}
+
+            //// Obtenemos las carpetas del año -3
+            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-3):yy}").ToList())
+            //{
+            //    // Añadimos
+            //    listFolder.Add(row);
+            //}
+
+            //// Obtenemos las carpetas del año -4
+            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-4):yy}").ToList())
+            //{
+            //    // Añadimos
+            //    listFolder.Add(row);
+            //}
+
+            //// Obtenemos las carpetas del año -5
+            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-5):yy}").ToList())
+            //{
+            //    // Añadimos
+            //    listFolder.Add(row);
+            //}
+
+            //// Obtenemos las carpetas del año -6
+            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-6):yy}").ToList())
+            //{
+            //    // Añadimos
+            //    listFolder.Add(row);
+            //}
 
             // Validamos si encontramos los logos
             if (Directory.Exists($"{rutaOrigen}\\bmp"))
@@ -54,37 +101,34 @@ namespace MileBackupsV4
                 listFolder.Add($"{rutaOrigen}\\dbf");
             }
 
-            // Recorredor
-            int iteracionCarpeta = 0;
-
             // Recorremos las carpetas
-            foreach (var carpetaCurso in listFolder)
+            foreach (var carpetaActual in listFolder)
             {
-                // Sumamos la iteración
-                iteracionCarpeta = iteracionCarpeta + 1;
-                carpetas = carpetas + 1;
+                // Sumamos
+                carpetaIteracion = carpetaIteracion + 1;
+                carpetaProcesada = carpetaProcesada + 1;
 
                 // Subcarpeta
-                var subCarpeta = Directory.GetFiles(carpetaCurso).ToList();
+                List<string> contenido = Directory.GetFiles(carpetaActual).ToList();
 
-                // Sumamos la iteracion del archivo
-                int iteracionArchivo = 0;
+                // Seteamos
+                archivoIteracion = 0;
 
-                // listamos los archivos
-                foreach (var row in subCarpeta)
+                // Recorremos
+                foreach (var file in contenido)
                 {
-                    // Sumamos la iteracion
-                    iteracionArchivo = iteracionArchivo + 1;
-                    Carchivos = Carchivos + 1;
+                    // Seteamos
+                    archivoIteracion = archivoIteracion + 1;
+                    archivoProcesado = archivoProcesado + 1;
 
                     // Fileinfo
-                    FileInfo fileInfo = new FileInfo(row);
+                    FileInfo fileInfo = new FileInfo(file);
 
                     // Mostramos mensaje
-                    Console.WriteLine($"Copiando archivo {iteracionArchivo:n0} de {subCarpeta.Count:n0} - Copiando carpeta {iteracionCarpeta:n0} de {listFolder.Count:n0} - {fileInfo.FullName}");
+                    Console.WriteLine($"Copiando archivo {archivoIteracion:n0} de {contenido.Count:n0} - Copiando carpeta {carpetaIteracion:n0} de {listFolder.Count:n0} - {fileInfo.FullName}");
 
                     // Carpeta actual
-                    string carpeta = $"{carpetaCurso.Replace($"{rutaOrigen}\\", "")}";
+                    string carpeta = $"{carpetaActual.Replace($"{rutaOrigen}\\", "")}";
 
                     // Validamos que exista la carpeta
                     if (!Directory.Exists($"{rutaDestino}\\{carpeta}"))
@@ -100,9 +144,10 @@ namespace MileBackupsV4
                 }
             }
 
-            Console.WriteLine($"Se han copiado {carpetas:n0} carpetas y {Carchivos:n0} archivos");
-            Console.WriteLine($"{rutaOrigen}");
-            Console.WriteLine("Proceso terminado");
+            Console.WriteLine($"\nSe han copiado las carpetas del año {DateTime.Now:yyyy} y del año {DateTime.Now.AddYears(-1):yyyy}");
+            Console.WriteLine($"Un total de {carpetaProcesada:n0} carpetas y {archivoProcesado:n0} archivos...");
+            Console.WriteLine("Presione cualquier tecla para continuar\n");
+            Console.ReadLine();
         }
     }
 }

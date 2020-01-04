@@ -6,10 +6,11 @@ namespace MileBackupsV4
     public static class Configuracion
     {
         public static string Ruta = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium";
-        public static string WebXmlAutorizados = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\XML AUTORIZADO";
-        public static string WebPdf = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\PDF";
-        public static string WebLogotipo = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Logotipo";
-        public static string WebFirmasElectronicas = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Firma";
+
+        public static string WebXmlAutorizados = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Web\\XML AUTORIZADO";
+        public static string WebPdf = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Web\\PDF";
+        public static string WebLogotipo = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Web\\Logotipo";
+        public static string WebFirmasElectronicas = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Web\\Firma";
 
         /// <summary>
         /// Valida si existe un directorio

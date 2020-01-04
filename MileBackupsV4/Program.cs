@@ -7,8 +7,6 @@ namespace MileBackupsV4
     {
         static void Main(string[] args)
         {
-            MileniumWeb mileniumWeb = new MileniumWeb();
-
             try
             {
                 // Validamos si es administrador
@@ -19,8 +17,11 @@ namespace MileBackupsV4
                     Environment.Exit(0);
                 }
 
+                // Contable
+                new MileniumFoxPro().Respaldar();
+
                 // Web
-                mileniumWeb.Respaldar();
+                new MileniumWeb().Respaldar();
             }
             catch (Exception ex)
             {
