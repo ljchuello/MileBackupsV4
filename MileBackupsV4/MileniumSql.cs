@@ -129,6 +129,10 @@ namespace MileBackupsV4
                                      "\nDEALLOCATE db_cursor";
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.ExecuteNonQuery();
+
+            Console.WriteLine($"\nSe ha respaldado con éxito la base de datos SQL");
+            Console.WriteLine("Presione cualquier tecla para continuar\n");
+            Console.ReadLine();
         }
     }
 }

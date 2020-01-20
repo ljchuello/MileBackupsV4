@@ -1,4 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Management;
+using System.Security.AccessControl;
 using System.Security.Principal;
 
 namespace MileBackupsV4
@@ -18,10 +22,26 @@ namespace MileBackupsV4
                 }
 
                 // Contable
-                //new MileniumFoxPro().Respaldar();
+                new MileniumFoxPro().Respaldar();
 
                 // Web
-                //new MileniumWeb().Respaldar();
+                new MileniumWeb().Respaldar();
+
+                #region Estableciendo permisos
+
+                // Obtenemos la informacion del directorio
+                DirectoryInfo directoryInfo = new DirectoryInfo(Configuracion.Ruta);
+
+                // Obtenemos la informacion del directorio
+                DirectorySecurity directorySecurity = directoryInfo.GetAccessControl();
+
+                // Seteamos
+                directorySecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+
+                // Guardamos
+                directoryInfo.SetAccessControl(directorySecurity);
+
+                #endregion
 
                 // SQL
                 new MileniumSql().Respaldar();

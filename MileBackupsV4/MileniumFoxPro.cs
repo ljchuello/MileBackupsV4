@@ -47,41 +47,6 @@ namespace MileBackupsV4
                 listFolder.Add(row);
             }
 
-            //// Obtenemos las carpetas del año -2
-            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-2):yy}").ToList())
-            //{
-            //    // Añadimos
-            //    listFolder.Add(row);
-            //}
-
-            //// Obtenemos las carpetas del año -3
-            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-3):yy}").ToList())
-            //{
-            //    // Añadimos
-            //    listFolder.Add(row);
-            //}
-
-            //// Obtenemos las carpetas del año -4
-            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-4):yy}").ToList())
-            //{
-            //    // Añadimos
-            //    listFolder.Add(row);
-            //}
-
-            //// Obtenemos las carpetas del año -5
-            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-5):yy}").ToList())
-            //{
-            //    // Añadimos
-            //    listFolder.Add(row);
-            //}
-
-            //// Obtenemos las carpetas del año -6
-            //foreach (var row in Directory.GetDirectories(rutaOrigen, $"*{DateTime.Now.AddYears(-6):yy}").ToList())
-            //{
-            //    // Añadimos
-            //    listFolder.Add(row);
-            //}
-
             // Validamos si encontramos los logos
             if (Directory.Exists($"{rutaOrigen}\\bmp"))
             {

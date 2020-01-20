@@ -5,8 +5,8 @@ namespace MileBackupsV4
 {
     public static class Configuracion
     {
-        //public static string Ruta = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium";
-        public static string Ruta = $"D:\\Respaldos Milenium";
+        public static string Ruta = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium";
+        //public static string Ruta = $"D:\\Respaldos Milenium";
 
         public static string WebXmlAutorizados = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Web\\XML AUTORIZADO";
         public static string WebPdf = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Respaldos Milenium\\Web\\PDF";
