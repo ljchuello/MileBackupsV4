@@ -24,7 +24,7 @@ namespace MileBackupsV4
                 //new MileniumWeb().Respaldar();
 
                 // SQL
-                new MileniumSql().a();
+                new MileniumSql().Respaldar();
             }
             catch (Exception ex)
             {
