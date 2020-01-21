@@ -46,7 +46,7 @@ namespace MileBackupsV4
             // Depuramos las instancias
             foreach (DataRow row in dataTable.Rows)
             {
-                //if (row[0].ToString().ToLower() == Environment.MachineName.ToLower())
+                if (row[0].ToString().ToLower() == Environment.MachineName.ToLower())
                 {
                     iteracion = iteracion + 1;
                     MileniumSql mileniumSql = new MileniumSql();
@@ -66,13 +66,13 @@ namespace MileBackupsV4
             }
 
             // Seleccione la opcion que corresponda
-            Console.WriteLine("\nSeleccione una opción a respaldar");
             foreach (var row in list)
             {
                 Console.WriteLine(string.IsNullOrEmpty(row.Instancia)
                     ? $"{row.Id}\t{row.Servidor}"
                     : $"{row.Id}\t{row.Servidor}\\{row.Instancia}");
             }
+            Console.WriteLine("\nSeleccione una opción a respaldar");
             var id = Console.ReadLine();
 
             // Validamos

@@ -27,8 +27,8 @@ namespace MileBackupsV4
             string rutaDestino = $"{Configuracion.Ruta}\\Milenium\\{DateTime.Now:yyyy.MM.dd-HH.mm.ss}";
 
             // Obtenemos la lista de las carpeta de la empresa
-            string rutaOrigen = "\\\\server-fc\\D\\Milenium";
-            //string rutaOrigen = $"{Environment.CurrentDirectory}";
+            //string rutaOrigen = "\\\\server-fc\\D\\Milenium";
+            string rutaOrigen = $"{Environment.CurrentDirectory}";
 
             // Creamos el contenedor
             List<string> listFolder = new List<string>();
