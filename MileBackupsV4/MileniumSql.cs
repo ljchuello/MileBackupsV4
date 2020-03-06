@@ -90,11 +90,11 @@ namespace MileBackupsV4
             SqlConnection SqlConnection = new SqlConnection();
             if (!string.IsNullOrWhiteSpace(sql.Instancia))
             {
-                SqlConnection = new SqlConnection($"data source={sql.Servidor}\\{sql.Instancia}; initial catalog=MileniumFact; persist security info=True; user id=sa; password=Sermatick3000; MultipleActiveResultSets=True;Connection Timeout=15;");
+                SqlConnection = new SqlConnection($"data source={sql.Servidor}\\{sql.Instancia}; initial catalog=MileniumFact; persist security info=True; user id=sa; password=Sermatick3000; MultipleActiveResultSets=True;Connection Timeout=300;");
             }
             else
             {
-                SqlConnection = new SqlConnection($"data source={sql.Servidor}; initial catalog=MileniumFact; persist security info=True; user id=sa; password=Sermatick3000; MultipleActiveResultSets=True;Connection Timeout=15;");
+                SqlConnection = new SqlConnection($"data source={sql.Servidor}; initial catalog=MileniumFact; persist security info=True; user id=sa; password=Sermatick3000; MultipleActiveResultSets=True;Connection Timeout=300;");
             }
 
             // -

@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MileBackupsV4", "MileBackupsV4\MileBackupsV4.csproj", "{638B57B5-8483-48EB-B591-5C7F77F27A0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoxPro", "FoxPro\FoxPro.csproj", "{A23A27E8-691F-4943-8106-44755469F05D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{19544CF4-B91E-4ABF-8F41-D13C39C2FE45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{638B57B5-8483-48EB-B591-5C7F77F27A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{638B57B5-8483-48EB-B591-5C7F77F27A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{638B57B5-8483-48EB-B591-5C7F77F27A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23A27E8-691F-4943-8106-44755469F05D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23A27E8-691F-4943-8106-44755469F05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23A27E8-691F-4943-8106-44755469F05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23A27E8-691F-4943-8106-44755469F05D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19544CF4-B91E-4ABF-8F41-D13C39C2FE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19544CF4-B91E-4ABF-8F41-D13C39C2FE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19544CF4-B91E-4ABF-8F41-D13C39C2FE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19544CF4-B91E-4ABF-8F41-D13C39C2FE45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
